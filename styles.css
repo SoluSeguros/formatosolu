@@ -1,0 +1,170 @@
+:root{
+  --verde:#0b6b3a;
+  --azul:#2b3a55;
+  --gris:#f4f6f8;
+  --linea:#d7dde5;
+}
+*{box-sizing:border-box}
+body{
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:var(--gris);
+  margin:0;
+  color:#1f2937;
+}
+header{
+  background:#fff;
+  border-bottom:1px solid var(--linea);
+  padding:12px 16px;
+  position:sticky;top:0;z-index:30;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+header img{height:34px}
+header h1{font-size:17px;margin:0;flex:1;min-width:200px}
+.acciones{display:flex;gap:8px;flex-wrap:wrap}
+.save-status{font-size:12px;font-weight:600;color:var(--verde);opacity:0;transition:opacity .3s;white-space:nowrap}
+button{
+  padding:10px 16px;border:none;border-radius:8px;cursor:pointer;
+  font-weight:600;font-size:14px;transition:.15s;
+}
+button:active{transform:translateY(1px)}
+.primary{background:var(--verde);color:#fff}
+.secondary{background:var(--azul);color:#fff}
+.ghost{background:#fff;border:1px solid var(--linea);color:#333}
+.wrap{display:flex;gap:16px;align-items:flex-start;padding:16px;flex-wrap:wrap}
+.form-col{flex:1;min-width:320px;max-width:760px}
+.prev-col{flex:1;min-width:320px;position:sticky;top:74px}
+section.card{
+  background:#fff;border:1px solid var(--linea);border-radius:12px;
+  margin-bottom:16px;overflow:hidden;
+}
+.card>h2{
+  margin:0;padding:12px 16px;font-size:15px;background:#eef2f7;
+  color:var(--azul);border-bottom:1px solid var(--linea);
+  display:flex;align-items:center;gap:8px;
+}
+.card>h2 .n{
+  background:var(--verde);color:#fff;border-radius:50%;
+  width:22px;height:22px;display:inline-flex;align-items:center;
+  justify-content:center;font-size:12px;flex:0 0 auto;
+}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:10px 12px;padding:14px 16px}
+.field{display:flex;flex-direction:column;gap:4px}
+.field.c12{grid-column:span 12}
+.field.c6{grid-column:span 6}
+.field.c4{grid-column:span 4}
+.field.c3{grid-column:span 3}
+.field.c2{grid-column:span 2}
+.field.c8{grid-column:span 8}
+.field label{font-size:12px;font-weight:600;color:#54607a}
+.field input,.field textarea,.field select{
+  padding:8px 10px;border:1px solid #cbd3df;border-radius:7px;
+  font-size:14px;font-family:inherit;background:#fff;width:100%;
+}
+.field input:focus,.field textarea:focus,.field select:focus{
+  outline:none;border-color:var(--verde);box-shadow:0 0 0 2px rgba(11,107,58,.15);
+}
+.field textarea{resize:vertical;min-height:70px}
+.radio-row{display:flex;gap:6px;flex-wrap:wrap}
+.radio-row label{
+  font-size:13px;font-weight:600;border:1px solid #cbd3df;border-radius:20px;
+  padding:6px 14px;cursor:pointer;background:#fff;color:#54607a;user-select:none;
+}
+.radio-row input{display:none}
+.radio-row label.on{background:var(--verde);color:#fff;border-color:var(--verde)}
+.subt{grid-column:span 12;font-size:12px;color:#8a93a6;margin-top:4px;border-top:1px dashed var(--linea);padding-top:8px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+/* ---- Modal de borradores ---- */
+.modal{
+  position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:100;
+  display:none;align-items:flex-start;justify-content:center;padding:20px;
+}
+.modal.show{display:flex}
+.modal-box{
+  background:#fff;border-radius:14px;width:100%;max-width:520px;margin-top:40px;
+  box-shadow:0 12px 40px rgba(0,0,0,.3);overflow:hidden;max-height:85vh;display:flex;flex-direction:column;
+}
+.modal-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 16px;background:#eef2f7;border-bottom:1px solid var(--linea);
+}
+.modal-head h3{margin:0;font-size:16px;color:var(--azul)}
+.modal-tools{padding:12px 16px;border-bottom:1px solid var(--linea)}
+.modal-tools button{width:100%}
+.draft-list{overflow:auto;padding:8px}
+.draft-row{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:10px 12px;border:1px solid var(--linea);border-radius:10px;margin-bottom:8px;
+}
+.draft-info{min-width:0;flex:1}
+.draft-title{font-weight:600;font-size:14px;color:#1f2937;display:flex;align-items:center;gap:6px}
+.draft-sub{font-size:12px;color:#8a93a6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.draft-actions{display:flex;gap:6px;flex:0 0 auto}
+.draft-actions button{padding:7px 12px;font-size:13px}
+.danger{color:#c0392b;border-color:#f0c4bd}
+.badge{
+  font-size:10px;font-weight:700;background:var(--verde);color:#fff;
+  border-radius:10px;padding:2px 7px;text-transform:uppercase;letter-spacing:.5px;
+}
+
+/* ---- Croquis: señalar daño sobre el carro ---- */
+.croquis-wrap{display:flex;gap:28px;flex-wrap:wrap;padding:14px 16px;justify-content:center}
+.croquis{display:flex;flex-direction:column;gap:8px;align-items:center}
+.croquis h4{margin:0;font-size:13px;color:#54607a;text-align:center}
+.croquis .pad{position:relative;border:1px solid var(--linea);border-radius:8px;background:#fff;touch-action:none;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.croquis .pad img{display:block;width:100%;height:100%;pointer-events:none;user-select:none}
+.croquis .pad canvas{position:absolute;top:0;left:0;cursor:crosshair;border-radius:8px}
+.croquis .tools{display:flex;gap:6px}
+.croquis .tools button{padding:6px 12px;font-size:12px}
+
+.viewer{
+  background:#fff;border:1px solid var(--linea);border-radius:12px;padding:8px;
+  text-align:center;max-height:calc(100vh - 100px);overflow:auto;
+}
+.viewer canvas{max-width:100%;box-shadow:0 1px 6px rgba(0,0,0,.12);margin-bottom:10px;border:1px solid #eee}
+.hint{font-size:12px;color:#8a93a6;padding:0 16px 14px}
+.pagenav{display:flex;gap:8px;justify-content:center;align-items:center;margin-bottom:8px}
+/* safe-area para celulares con notch */
+header{
+  padding-left:max(16px, env(safe-area-inset-left));
+  padding-right:max(16px, env(safe-area-inset-right));
+  padding-top:max(12px, env(safe-area-inset-top));
+}
+
+/* Tablet / pantallas medianas: la vista previa pasa debajo */
+@media(max-width:900px){
+  .prev-col{position:static;width:100%}
+  .form-col{max-width:100%}
+}
+
+/* Celular */
+@media(max-width:640px){
+  body{padding:0}
+  header{padding:10px 12px;gap:8px}
+  header h1{font-size:14px;width:100%;order:2}
+  header img{height:28px;order:1}
+  .acciones{width:100%;order:3}
+  .acciones button{flex:1;padding:11px 8px;font-size:13px}
+  .save-status{order:4;width:100%;text-align:center;margin-top:2px}
+  .wrap{padding:10px;gap:12px}
+  .grid{padding:12px;gap:9px 8px}
+  .card>h2{font-size:14px;padding:11px 12px}
+
+  /* el formulario pasa a 1-2 columnas para que se lea bien */
+  .field.c8,.field.c6{grid-column:span 12}
+  .field.c4{grid-column:span 6}
+  .field.c3{grid-column:span 6}
+  .field.c2{grid-column:span 6}
+
+  .field input,.field textarea,.field select{font-size:16px} /* evita zoom de iOS */
+  .croquis-wrap{gap:18px}
+  .pagenav{flex-wrap:wrap}
+}
+
+/* Celular pequeño */
+@media(max-width:380px){
+  .field.c4,.field.c3,.field.c2{grid-column:span 12}
+}
+
+/* Modo PWA instalada (standalone) */
+@media all and (display-mode:standalone){
+  header{position:sticky;top:0}
+}
